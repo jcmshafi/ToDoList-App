@@ -10,6 +10,7 @@ import com.example.todo.Adapter.ToDoAdapter;
 import com.example.todo.Model.ToDoModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).hide();
+
+        taskList = new ArrayList<>();
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         taskList.add(task);
         taskList.add(task);
 
+        tasksAdapter.setTasks(taskList);
 
     }
 }
