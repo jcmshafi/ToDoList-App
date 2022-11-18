@@ -9,9 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:hint="New task.."
+        android:hint="Add a new task"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColorHint="@color/white" />
+        android:textColorHint="#605B5B"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/newTaskButton"

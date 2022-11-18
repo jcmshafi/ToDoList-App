@@ -1,5 +1,6 @@
 package com.example.todo.Adapter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,14 +59,26 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         return n != 0;
     }
 
+    @Override
     public int getItemCount() {
         return todoList.size();
     }
+
+    public Context getContext() {
+        return activity;
+    }
+
 
     public void setTasks(List<ToDoModel> todoList){
         this.todoList = todoList;
         notifyDataSetChanged();
 
+    }
+    public void deleteItem(int position) {
+        ToDoModel item = todoList.get(position);
+        db.deleteTask(item.getId());
+        todoList.remove(position);
+        notifyItemRemoved(position);
     }
 
     public void editItem(int position) {
